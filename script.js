@@ -1,4 +1,4 @@
-const greetings = ["Hello, GitHub!", "Hello, Open Source!", "Welcome to the Web!", "Happy Coding!"];
+const greetings = ["Hello, There!", "Hello, Open Source!", "Welcome to the Web!", "Happy Coding!"];
 let currentIndex = 0;
 const audio = new Audio('click.wav')
 
@@ -39,3 +39,18 @@ function getRandomFact() {
     playSound()
 }
 
+function typeGreeting(text, elementId) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    element.textContent = '';
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.textContent += text[i];
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
+typeGreeting('Hello, World!', 'greeting');
