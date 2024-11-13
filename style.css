@@ -1,3 +1,4 @@
+/* General Body Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -10,8 +11,10 @@ body {
     background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient */
     color: #ecf0f1; /* Light text for contrast */
     font-weight: 400; /* Consistent text weight */
+    padding-top: 60px; /* Space for fixed header */
 }
 
+/* Greeting Animations */
 #greeting {
     animation: fadeIn 0.5s ease-in-out, float 3s infinite ease-in-out;
 }
@@ -28,20 +31,28 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(-10px); opacity: 0.9; }
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.9;
+    }
 }
 
+/* Button Styles */
 button {
     margin-top: 20px;
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    border: 1px solid #ecf0f1;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #FF5733, #33FF57) 1; /* Gradient border */
     border-radius: 5px;
     background: transparent;
     color: #ecf0f1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
@@ -50,6 +61,46 @@ button:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Navigation Bar */
+header {
+    position: fixed; /* Sticks the nav bar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensures the header stays above everything */
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Center the links */
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ecf0f1; /* Light color for contrast */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s, background 0.3s;
+}
+
+nav a:hover {
+    color: #ff9a9e;
+    background: rgba(255, 255, 255, 0.1); /* Light hover background */
+    border-radius: 5px;
+}
+
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
 #social-icons {
     position: fixed;
     bottom: 20px;
@@ -69,16 +120,3 @@ button:hover {
     transform: scale(1.1);
     opacity: 1;
 }
-
-button {
-    background: none;
-    border: 2px solid;
-    border-image: linear-gradient(45deg, #FF5733, #33FF57) 1;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-
